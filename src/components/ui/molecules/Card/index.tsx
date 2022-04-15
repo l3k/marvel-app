@@ -4,8 +4,8 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 import { Container } from './styles';
 
-import { Image } from '@src/components/atoms/Image';
-import { Title } from '@src/components/atoms/Title';
+import { Image } from '@src/components/ui/atoms/Image';
+import { Title } from '@src/components/ui/atoms/Title';
 
 type CardProps = {
   img_url: string;
