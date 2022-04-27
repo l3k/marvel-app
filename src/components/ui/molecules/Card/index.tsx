@@ -10,11 +10,13 @@ import { Title } from '@src/components/ui/atoms/Title';
 type CardProps = {
   img_url: string;
   title: string;
+  handlePress: () => void;
+
 };
 
-export function Card({ img_url, title }: CardProps) {
+export function Card({ img_url, title, handlePress }: CardProps) {
   return (
-    <Container style={styles.shadow}>
+    <Container style={styles.shadow} onPress={handlePress}>
       <Image img_url={img_url} />
       <Title title={title} styles={{ marginLeft: RFValue(10) }} />
     </Container>
