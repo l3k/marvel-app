@@ -1,30 +1,25 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import {
-  Container,
-  ImageContent,
-  Header,
-  BackButton,
-  Icon,
-  FooterContent,
-} from './styles';
+import { Container, ImageContent, Header, BackButton, Icon, FooterContent } from './styles';
 
-export function Detail(){
-  const {goBack} = useNavigation();
+import {CharacterData} from '@src/components/ui/templates/CharacterData'
+
+export function Detail() {
+  const { goBack } = useNavigation();
 
   return (
     <Container>
-      <ImageContent source={{uri: 'http://placeimg.com/640/480'}}>
+      <ImageContent source={{ uri: 'http://placeimg.com/640/480' }}>
         <Header>
           <BackButton style={styles.shadow} onPress={goBack}>
-            <Icon name="arrow-left"/>
+            <Icon name="arrow-left" />
           </BackButton>
         </Header>
       </ImageContent>
       <FooterContent>
-
+        <CharacterData />
       </FooterContent>
     </Container>
   );
@@ -43,3 +38,4 @@ const styles = StyleSheet.create({
     elevation: 12,
   },
 });
+

@@ -1,15 +1,15 @@
 import styled from 'styled-components/native';
-import {RFValue} from 'react-native-responsive-fontsize';
-import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import {Feather} from '@expo/vector-icons';
+import { RFValue } from 'react-native-responsive-fontsize';
+import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { Feather } from '@expo/vector-icons';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({theme}) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const ImageContent = styled.ImageBackground`
-  flex: 3;
+  flex: 5;
 `;
 
 export const Header = styled.View`
@@ -23,7 +23,7 @@ export const BackButton = styled.TouchableOpacity`
   height: ${RFValue(40)}px;
   align-items: center;
   justify-content: center;
-  background-color: ${({theme}) => theme.colors.card};
+  background-color: ${({ theme }) => theme.colors.card};
   border-radius: ${RFValue(12)}px;
 `;
 
@@ -32,10 +32,10 @@ export const Icon = styled(Feather)`
 `;
 
 export const FooterContent = styled.View`
-  flex: 1;
-  background-color: ${({theme}) => theme.colors.background};
+  flex: 2;
+  background-color: ${({ theme }) => theme.colors.background};
   border-top-left-radius: ${RFValue(20)}px;
   border-top-right-radius: ${RFValue(20)}px;
-  padding-bottom: ${getBottomSpace()}px;
   bottom: ${RFValue(20)}px;
 `;
+

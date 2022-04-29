@@ -14,3 +14,4 @@ export const Image = styled.Image`
   width: ${RFValue(120)}px;
   height: ${RFValue(45)}px;
 `;
+

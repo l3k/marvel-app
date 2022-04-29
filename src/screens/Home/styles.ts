@@ -16,3 +16,4 @@ export const Content = styled.View`
   width: 100%;
   padding: 0 ${RFValue(25)}px ${getBottomSpace()}px ${RFValue(25)}px;
 `;
+

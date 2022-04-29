@@ -29,3 +29,4 @@ export const Icon = styled(Feather)`
   font-size: ${RFValue(16)}px;
   color: ${({ theme }) => theme.colors.card};
 `;
+

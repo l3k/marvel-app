@@ -13,3 +13,4 @@ export const Container = styled(FlatList as new () => FlatList<ItemProps>).attrs
 export const Separator = styled.View`
   margin: ${RFValue(10)}px 0;
 `;
+

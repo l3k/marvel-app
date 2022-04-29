@@ -9,3 +9,4 @@ type ImageProps = {
 export function Image({ img_url }: ImageProps) {
   return <Container source={{ uri: img_url || 'http://placeimg.com/640/480' }} />;
 }
+

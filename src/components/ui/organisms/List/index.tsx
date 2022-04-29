@@ -1,19 +1,22 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { Container, Separator } from './styles';
 
 import { Card } from '@components/ui/molecules/Card';
-
+import { RootStackParamList } from '@src/utils/RootStackParams';
 export interface ItemProps {
   id: string;
   title: string;
   img_url: string;
 }
 
+type NavProps = NativeStackNavigationProp<RootStackParamList, 'Detail'>;
+
 export function List() {
-  const { navigate } = useNavigation()
-  const data: Array<ItemProps> = [
+  const { navigate } = useNavigation<NavProps>();
+  const data: ItemProps[] = [
     {
       id: '8f4cc2ed-153b-462d-bf0e-4fcf567a2718',
       title: 'Julian',
@@ -67,22 +70,23 @@ export function List() {
   ];
 
   function handleCharacter(character_id: string) {
-    navigate('Detail', { character_id })
+    navigate('Detail', { character_id });
   }
 
   return (
     <Container
       data={data}
       numColumns={2}
-      keyExtractor={(item) => item.title}
+      keyExtractor={(item: ItemProps) => item.id}
       ItemSeparatorComponent={() => <Separator />}
-      renderItem={({ item }) => 
+      renderItem={({ item }: { item: ItemProps }) => (
         <Card
           title={item.title}
           img_url={item.img_url}
           handlePress={() => handleCharacter(item.id)}
         />
-      }
+      )}
     />
   );
 }
+

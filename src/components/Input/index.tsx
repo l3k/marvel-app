@@ -19,3 +19,4 @@ export function Input({ icon, handlePress, ...rest }: InputProps) {
     </Container>
   );
 }
+

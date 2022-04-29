@@ -9,3 +9,4 @@ export const Container = styled.TouchableOpacity.attrs({})`
   padding: ${RFValue(9)}px;
   justify-content: space-around;
 `;
+

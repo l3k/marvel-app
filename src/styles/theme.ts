@@ -12,3 +12,4 @@ export default {
     bold: 'RobotoCondensed_700Bold',
   },
 };
+
