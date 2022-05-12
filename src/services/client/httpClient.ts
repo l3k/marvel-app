@@ -30,7 +30,6 @@ export default async function httpClient({
       params,
     });
   } catch (error) {
-    console.log(error.response);
     throw error;
   }
 }

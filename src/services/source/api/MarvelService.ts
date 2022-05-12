@@ -15,3 +15,22 @@ export async function getHeroes(name: string) {
   }
 }
 
+export async function getHero(character_id: number) {
+  try {
+    const responses = Promise.all([
+      await httpClient({
+        url: `characters/${character_id}`,
+        method: 'GET',
+      }),
+      await httpClient({
+        url: `characters/${character_id}/comics`,
+        method: 'GET',
+      }),
+    ]);
+
+    return responses;
+  } catch (error) {
+    throw error;
+  }
+}
+

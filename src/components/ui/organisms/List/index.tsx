@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -12,11 +12,17 @@ type NavProps = NativeStackNavigationProp<RootStackParamList, 'Detail'>;
 
 export function List() {
   const { navigate } = useNavigation<NavProps>();
-  const { heroes } = useHero();
+  const { hero, heroes, loadHero } = useHero();
 
-  function handleCharacter(character_id: string) {
-    navigate('Detail', { character_id });
+  function handleCharacter(character_id: number) {
+    loadHero(character_id);
   }
+
+  useEffect(() => {
+    if (hero && hero?.id && hero?.id !== null) {
+      navigate('Detail');
+    }
+  }, [hero]);
 
   return (
     <Container

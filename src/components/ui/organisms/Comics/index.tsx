@@ -1,43 +1,25 @@
 import React from 'react';
+import { View } from 'react-native';
 
 import { Container, Separator } from './styles';
 
-export interface Props {
-  id: string;
-  img_url: string;
-}
-
 import { Comic } from '@src/components/ui/molecules/Comic';
-import { View } from 'react-native';
+import { ComicProps } from '@src/hooks/hero';
 
-export function Comics() {
-  const data: Array<Props> = [
-    {
-      id: '1',
-      img_url: 'http://placeimg.com/640/480',
-    },
-    {
-      id: '2',
-      img_url: 'http://placeimg.com/640/480',
-    },
-    {
-      id: '3',
-      img_url: 'http://placeimg.com/640/480',
-    },
-    {
-      id: '4',
-      img_url: 'http://placeimg.com/640/480',
-    },
-  ];
-
+export function Comics({ data }: ComicProps) {
   return (
     <View style={{ flex: 1 }}>
       <Container
         data={data}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item, index) => `${item.title}-${index}`}
         showsHorizontalScrollIndicator={false}
         ItemSeparatorComponent={() => <Separator />}
-        renderItem={({ item }) => <Comic />}
+        renderItem={({ item }: { item: ComicProps }) => (
+          <Comic
+            img={`${item.thumbnail.path}/portrait_xlarge.${item.thumbnail.extension}`}
+            title={item.title}
+          />
+        )}
         horizontal
       />
     </View>
