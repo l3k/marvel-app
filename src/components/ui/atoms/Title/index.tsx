@@ -12,6 +12,10 @@ interface TextProps extends TextStyle {
 }
 
 export function Title({ title, styles }: TextProps) {
-  return <Text style={styles}>{title}</Text>;
+  return (
+    <Text style={styles} numberOfLines={1}>
+      {title}
+    </Text>
+  );
 }
 

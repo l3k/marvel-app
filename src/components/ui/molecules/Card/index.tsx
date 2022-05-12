@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, useWindowDimensions } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 import { Container } from './styles';
@@ -11,10 +11,11 @@ type CardProps = {
   img_url: string;
   title: string;
   handlePress: () => void;
-
 };
 
 export function Card({ img_url, title, handlePress }: CardProps) {
+  const { height } = useWindowDimensions();
+  console.log(height);
   return (
     <Container style={styles.shadow} onPress={handlePress}>
       <Image img_url={img_url} />
@@ -36,3 +37,4 @@ const styles = StyleSheet.create({
     elevation: 12,
   },
 });
+

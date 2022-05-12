@@ -8,16 +8,21 @@ import { Header } from '@src/components/Header';
 import { Card } from '@src/components/ui/molecules/Card';
 import { Input } from '@src/components/Input';
 import { List } from '@src/components/ui/organisms/List';
+import { useHero } from '@src/hooks/hero';
 
 export function Home() {
   const theme = useTheme();
-  const [search, setSearch] = useState('');
+  const { loadHeroes } = useHero();
 
   const handleTextChange = _.debounce((text) => {
-    setSearch(text);
-  }, 300);
+    loadHeroes(text);
+  }, 500);
 
   function handleGetCharacters() {}
+
+  useEffect(() => {
+    loadHeroes();
+  }, []);
 
   return (
     <Container>

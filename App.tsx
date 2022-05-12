@@ -9,6 +9,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { Routes } from '@src/routes';
 import theme from '@styles/theme';
+import { HeroProvider } from '@src/hooks/hero';
 
 const { APP_URL } = process.env;
 
@@ -24,7 +25,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes />
+      <HeroProvider>
+        <Routes />
+      </HeroProvider>
     </ThemeProvider>
   );
 }
+
